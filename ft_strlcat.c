@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabdulla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 16:05:25 by aabdulla          #+#    #+#             */
-/*   Updated: 2018/03/23 18:20:40 by aabdulla         ###   ########.fr       */
+/*   Created: 2018/03/24 15:55:54 by aabdulla          #+#    #+#             */
+/*   Updated: 2018/03/24 15:55:55 by aabdulla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	char *p;
+	int i;
 
 	p = dst;
-	while (*src)
-		*p++ = *src++;
-	*p = '\0';
-	return (dst);
+	i = 0;
+	while (p[i] != '\0')
+		i++;
+	dstsize -= i;
+	while (*src && dstsize != 0)
+	{
+		p[i++] = *src++;
+		dstsize--;
+	}
+	if (dstsize == 0)
+		*p = '\0';
+	return ((size_t)i);
 }

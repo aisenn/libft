@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabdulla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 16:05:25 by aabdulla          #+#    #+#             */
-/*   Updated: 2018/03/23 18:20:40 by aabdulla         ###   ########.fr       */
+/*   Created: 2018/03/23 20:47:29 by aabdulla          #+#    #+#             */
+/*   Updated: 2018/03/23 20:47:31 by aabdulla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+int     main(void)
 {
-	char *p;
+    char	*str1 = "String to copy";
+	char	*str2;
+	int		len = strlen(str1);
 
-	p = dst;
-	while (*src)
-		*p++ = *src++;
-	*p = '\0';
-	return (dst);
-}
+	str2 = (char *)malloc(len);
+	ft_strncpy(str2, str1, 20);
+	for (int i = 0; i <= len; i++ )
+	{
+		write(1, &str1[i], 1);
+	}
+} 
