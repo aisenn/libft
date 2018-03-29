@@ -21,7 +21,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <ctype.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -40,12 +39,5 @@ char    *ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *haystack, const char *needle);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-int		ft_strcmp(const char *s1, const char *s2);
-int		ft_strncmp(const char *s1, const char *s2, size_t count);
-int		ft_atoi(const char *str);
-int     ft_isalpha(int ch);
-int     ft_isascii(char ch);
-int     ft_toupper(int c);
-int     ft_tolower(int c);
 
 #endif
