@@ -6,7 +6,7 @@ int	ft_isalnum(int ch)
 		return (1);
 	else if (ch >= 'a' && ch <= 'z')
 		return (2);
-	if (ch >= '1' && ch <= '9')
+	if (ch >= '0' && ch <= '9')
 		return (4);
 	return (0);
 }

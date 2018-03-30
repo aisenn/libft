@@ -19,12 +19,12 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	p = s1;
 	while (*p)
 		p++;
-	while (*s2 && n != 0)
+	while (*s2 && n > 0)
 	{
 		*p++ = *s2++;
 		n--;
 	}
-	*p = *s2;
-
+	if (*s2 == '\0')
+		*p = '\0';
 	return (s1);
 }

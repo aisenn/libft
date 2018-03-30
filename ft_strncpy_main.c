@@ -18,7 +18,7 @@ int     main(void)
 	char	*str2;
 	int		len = strlen(str1);
 
-	str2 = (char *)malloc(len);
+	str2 = (char *)malloc(len + 1);
 	ft_strncpy(str2, str1, 20);
 	for (int i = 0; i <= len; i++ )
 	{
