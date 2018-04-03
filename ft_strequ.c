@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabdulla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/22 19:57:47 by aabdulla          #+#    #+#             */
-/*   Updated: 2018/04/03 14:26:40 by aabdulla         ###   ########.fr       */
+/*   Created: 2018/04/03 17:50:55 by aabdulla          #+#    #+#             */
+/*   Updated: 2018/04/03 17:50:57 by aabdulla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	unsigned char *d;
-	unsigned char *s;
-	unsigned char ch;
+	unsigned char *str1;
+	unsigned char *str2;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	ch = c;
-	if (n)
-		while (n)
-		{
-			if ((*d++ = *s++) == ch)
-				return (d);
-			n--;
-		}
-	return (0);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (*str1 || *str2)
+	{
+		if (*str1 != *str2)
+			return (0);
+		str1++;
+		str2++;
+	}
+	return (1);
 }

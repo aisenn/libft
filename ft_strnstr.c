@@ -12,27 +12,51 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char *ft_strnstr(const char *s, const char *find, size_t slen)
 {
-	int i;
-	int j;
+    char c;
+	char sc;
+    size_t len;
 
-	i = 0;
-	/*
-	**len = 0; REMOVE!!!
-	*/
-	len = 0;
-	if (*needle == '\0')
-		return ((char *)haystack);
-	while (haystack[i] != '\0')
+    if ((c = *find++) != '\0')
 	{
-		j = 0;
-		if (haystack[i] == needle[j])
-			while (haystack[i + j] == needle[j] && needle[j] != '\0')
-				j++;
-		if (needle[j] == '\0')
-			return ((char *)&haystack[i]);
-		i++;
-	}
-	return (NULL);
+        len = ft_strlen(find);
+        while (ft_strncmp(s, find, len) != 0) 
+		{
+            while (sc != c) 
+			{
+                if ((sc = *s++) == '\0' || slen-- < 1)
+                    return (NULL);
+            }
+            if (len > slen)
+                return (NULL);
+        }
+        s--;
+    }
+    return ((char *)s);
 }
+
+/*
+char *ft_strnstr(s, find, slen)
+    const char *s;
+    const char *find;
+    size_t slen;
+{
+    char c, sc;
+    size_t len;
+
+    if ((c = *find++) != '\0') {
+        len = strlen(find);
+        do {
+            do {
+                if ((sc = *s++) == '\0' || slen-- < 1)
+                    return (NULL);
+            } while (sc != c);
+            if (len > slen)
+                return (NULL);
+        } while (strncmp(s, find, len) != 0);
+        s--;
+    }
+    return ((char *)s);
+}
+*/
