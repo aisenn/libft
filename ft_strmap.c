@@ -6,7 +6,7 @@
 /*   By: aabdulla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 19:28:18 by aabdulla          #+#    #+#             */
-/*   Updated: 2018/04/02 19:28:19 by aabdulla         ###   ########.fr       */
+/*   Updated: 2018/04/06 16:57:07 by aabdulla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int i;
-	int len;
-	char *str;
+	int		i;
+	int		len;
+	char	*str;
 
 	i = 0;
 	if (!s || !f)

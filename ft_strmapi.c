@@ -6,7 +6,7 @@
 /*   By: aabdulla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 17:48:07 by aabdulla          #+#    #+#             */
-/*   Updated: 2018/04/03 17:48:08 by aabdulla         ###   ########.fr       */
+/*   Updated: 2018/04/06 16:44:11 by aabdulla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int i;
-	int len;
-	char *str;
+	int		i;
+	int		len;
+	char	*str;
 
 	i = 0;
 	if (!s || !f)

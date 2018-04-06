@@ -12,28 +12,28 @@
 
 #include "libft.h"
 
-char *ft_strnstr(const char *s, const char *find, size_t slen)
+char	*ft_strnstr(const char *s, const char *find, size_t slen)
 {
-    char c;
-	char sc;
-    size_t len;
+	char	c;
+	char	sc;
+	size_t	len;
 
-    if ((c = *find++) != '\0')
+	if ((c = *find++) != '\0')
 	{
-        len = ft_strlen(find);
-        while (ft_strncmp(s, find, len) != 0) 
+		len = ft_strlen(find);
+		while (ft_strncmp(s, find, len) != 0)
 		{
-            while (sc != c) 
+			while (sc != c)
 			{
-                if ((sc = *s++) == '\0' || slen-- < 1)
-                    return (NULL);
-            }
-            if (len > slen)
-                return (NULL);
-        }
-        s--;
-    }
-    return ((char *)s);
+				if ((sc = *s++) == '\0' || slen-- < 1)
+					return (NULL);
+			}
+			if (len > slen)
+				return (NULL);
+		}
+		s--;
+	}
+	return ((char *)s);
 }
 
 /*
