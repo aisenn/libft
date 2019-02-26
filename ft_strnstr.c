@@ -6,57 +6,37 @@
 /*   By: aabdulla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/27 20:30:51 by aabdulla          #+#    #+#             */
-/*   Updated: 2018/03/27 20:30:52 by aabdulla         ###   ########.fr       */
+/*   Updated: 2018/04/10 17:14:06 by aabdulla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s, const char *find, size_t slen)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	c;
-	char	sc;
-	size_t	len;
+	const char	*hend;
+	const char	*h;
+	const char	*n;
+	size_t		a;
 
-	if ((c = *find++) != '\0')
+	if (!*needle)
+		return ((char *)haystack);
+	hend = haystack + len;
+	while (*haystack && haystack <= hend)
 	{
-		len = ft_strlen(find);
-		while (ft_strncmp(s, find, len) != 0)
-		{
-			while (sc != c)
-			{
-				if ((sc = *s++) == '\0' || slen-- < 1)
-					return (NULL);
-			}
-			if (len > slen)
-				return (NULL);
-		}
-		s--;
+		a = ft_strlen(needle);
+		if (a > len)
+			return (NULL);
+		h = haystack;
+		n = needle;
+		while (*h && *n && h < hend)
+			if (*h++ != *n)
+				break ;
+			else
+				n++;
+		if (*n == 0)
+			return ((char*)haystack);
+		haystack++;
 	}
-	return ((char *)s);
+	return (0);
 }
-
-/*
-char *ft_strnstr(s, find, slen)
-    const char *s;
-    const char *find;
-    size_t slen;
-{
-    char c, sc;
-    size_t len;
-
-    if ((c = *find++) != '\0') {
-        len = strlen(find);
-        do {
-            do {
-                if ((sc = *s++) == '\0' || slen-- < 1)
-                    return (NULL);
-            } while (sc != c);
-            if (len > slen)
-                return (NULL);
-        } while (strncmp(s, find, len) != 0);
-        s--;
-    }
-    return ((char *)s);
-}
-*/

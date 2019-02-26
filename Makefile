@@ -13,6 +13,10 @@
 NAME = libft.a
 
 CFLAGS = -Wall -Werror -Wextra
+OBJDIR	= ./obj/
+SRCDIR	= ./src/
+INCDIR	= ./includes/
+OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 SRC =	./ft_memset.c \
 		./ft_bzero.c \
@@ -62,22 +66,58 @@ SRC =	./ft_memset.c \
 		./ft_putstr.c \
 		./ft_putendl.c \
 		./ft_putnbr.c \
+		./ft_putchar_fd.c \
+		./ft_putstr_fd.c \
+		./ft_putendl_fd.c \
+		./ft_putnbr_fd.c \
+		./ft_lstnew.c \
+		./ft_lstdelone.c \
+		./ft_lstdel.c \
+		./ft_lstadd.c \
+		./ft_lstiter.c \
+		./ft_lstmap.c \
+		./ft_swap.c \
+		./ft_intlen.c \
+		./ft_isupper.c \
+		./ft_isspace.c \
+		./ft_sqrt.c \
+		./get_next_line.c \
+		./ft_atoi_base.c \
+		./ft_abs.c \
+		./ft_pow.c \
+		./ft_str2del.c \
+		./ft_brackets.c \
+		./ft_count_printable_str.c \
+		./ft_count_words.c \
+		./ft_max.c \
+		./ft_min.c \
+		./ft_strbetween_len.c \
+		./ft_strbetween_sub.c \
+		./ft_strjoin_free.c \
+		./ft_get_file_content.c \
+		./ft_get_next_newline.c \
+		./ft_lerp.c \
 
-OBJ =	$(SRC:.c=.o)
 
-HEADERS = libft.h
+all: obj $(NAME)
 
-all: $(NAME)
+obj:
+	@ mkdir -p $(OBJDIR)
 
-$(NAME): | 
-	@ gcc -c $(CFLAGS) $(SRC) -I .
-	@ ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+
+$(OBJDIR)%.o: %.c
+	@ gcc $(CFLAGS) -I $(INCDIR) -c -o $@ $<
 
 clean:
-	@ /bin/rm -f $(OBJ)
+	@ /bin/rm -rf $(OBJDIR)
 
 fclean: clean
 	@ /bin/rm -f $(NAME)
-	@ /bin/rm -f $(OBJ)
+
 
 re: fclean all
+
+.PHONY: all clean fclean re
