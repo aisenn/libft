@@ -90,7 +90,6 @@ int					ft_sqrt(int nb);
 int					get_next_line(const int fd, char **line);
 int					ft_atoi_base(char *str, int base);
 int					ft_abs(int i);
-int					ft_pow(int num, int pow);
 int					ft_str2del(char ***s2d);
 char				*ft_strjoin_free(char *left, char *right, char del);
 int					ft_get_next_newline(int fd, char **line);
@@ -103,7 +102,10 @@ int					ft_count_words(char *str);
 int					ft_brackets(char *str);
 double				ft_min(double a, double b);
 double				ft_max(double a, double b);
+double				ft_average(double min, double max, double num);
+double				ft_pow(double num, int pow);
 double				ft_lerp(double a, double b, double t);
+double				ft_atof(char *str);
 
 #endif
 

@@ -97,7 +97,9 @@ SRC =	./ft_memset.c \
 		./ft_get_file_content.c \
 		./ft_get_next_newline.c \
 		./ft_lerp.c \
-
+		./ft_pow.c \
+		./ft_atof.c \
+		./ft_average.c \
 
 all: obj $(NAME)
 

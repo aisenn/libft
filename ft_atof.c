@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabdulla <aabdulla@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 21:06:50 by aabdulla          #+#    #+#             */
-/*   Updated: 2019/03/14 21:07:14 by aabdulla         ###   ########.fr       */
+/*   Created: 2019/03/14 21:04:22 by aabdulla          #+#    #+#             */
+/*   Updated: 2019/03/14 21:06:31 by aabdulla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_pow(double num, int pow)
+#include "libft.h"
+
+double		ft_atof(char *str)
 {
-	if (num == 0 || pow < 0)
+	char	*ptr;
+	double	res;
+	double	fl;
+
+	if (str == NULL)
 		return (0);
-	else if (pow == 0)
-		return (1);
-	else if (pow == 1)
-		return (num);
-	return (num * ft_pow(num, pow - 1));
+	res = ft_atoi(str);
+	ptr = str;
+	if (*ptr == '-' || *ptr == '+')
+		ptr++;
+	while (ft_isdigit(*ptr) && *ptr != '\0')
+		ptr++;
+	if (*ptr == '.')
+	{
+		fl = ft_atoi(++ptr);
+		fl = fl * ft_pow(0.1, ft_intlen((int)fl));
+		if (res < 0)
+			fl *= -1;
+		res += fl;
+	}
+	return (res);
 }
