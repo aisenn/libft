@@ -100,6 +100,7 @@ SRC =	./ft_memset.c \
 		./ft_pow.c \
 		./ft_atof.c \
 		./ft_average.c \
+		./ft_int2del.c \
 
 all: obj $(NAME)
 

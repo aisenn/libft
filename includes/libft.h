@@ -106,6 +106,7 @@ double				ft_average(double min, double max, double num);
 double				ft_pow(double num, int pow);
 double				ft_lerp(double a, double b, double t);
 double				ft_atof(char *str);
+void				ft_int2del(int ***i2d, int height);
 
 #endif
 
