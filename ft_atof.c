@@ -22,6 +22,8 @@ double		ft_atof(char *str)
 		return (0);
 	res = ft_atoi(str);
 	ptr = str;
+	while (ft_isspace(*ptr))
+		ptr++;
 	if (*ptr == '-' || *ptr == '+')
 		ptr++;
 	while (ft_isdigit(*ptr) && *ptr != '\0')
